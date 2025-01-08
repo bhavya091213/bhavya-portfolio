@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Canvas } from "@react-three/fiber";
+import { Stats } from "@react-three/drei";
+import { Suspense } from "react";
+import "./App.css";
 
+import MainButtons from "./components/MainButtons";
+import LoadingAnimation from "./components/LoadingAnimation";
+import Name from "./models/Name";
+import MainScene from "./models/MainScene";
 function App() {
-  const [count, setCount] = useState(0)
-
+  const mainCameraPos = [0, 5.5, 7.5];
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Suspense fallback={<LoadingAnimation />}>
+        <Canvas
+          camera={{
+            position: [mainCameraPos[0], mainCameraPos[1], mainCameraPos[2]],
+          }}
+          style={{ width: `100%`, height: `auto`, position: `relative` }}
+          shadows
+        >
+          {/* Meshes */}
+          <MainScene x={0} y={0} z={0} initialPos={mainCameraPos} />
+          <Name name="BHAVYA PATEL" x={0} y={4.5} z={-2} size={1} />
+          <Name name="PORTFOLIO" x={0} y={3.3} z={-1.5} size={1.5} />
+          <MainButtons />
+          <Stats showPanel={3} className="stats" />
+        </Canvas>
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
