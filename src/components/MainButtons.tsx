@@ -4,12 +4,14 @@ const MainButtons = () => {
   const mainCameraPos = [0, 5.5, 7.5];
   return (
     <>
+      <pointLight position={[0, 5, 10]} intensity={100} />
       <ThreeDimButton
         text="SKILLS"
         posVector={[0, 0.01, 2.3]}
         targetPos={[25, 5, -20]}
         rotVector={[-Math.PI / 2, 0, 0]}
       />
+      <pointLight position={[25, 5, -23.3]} intensity={100} />
       <ThreeDimButton
         text="BACK"
         posVector={[25, 0.01, -23.3]}
@@ -22,6 +24,7 @@ const MainButtons = () => {
         targetPos={[-25, 5, -20]}
         rotVector={[-Math.PI / 2, 0, 0]}
       />
+      <pointLight position={[-25, 5, -23.3]} intensity={100} />
       <ThreeDimButton
         text="BACK"
         posVector={[-25, 0.01, -23.3]}
@@ -40,6 +43,19 @@ const MainButtons = () => {
         targetPos={[mainCameraPos[0], mainCameraPos[1], mainCameraPos[2]]}
         rotVector={[-Math.PI / 2, 0, Math.PI / 25]}
         size={0.3}
+      />
+      <ThreeDimButton
+        text="PROJECTS"
+        posVector={[0, 0.01, 5.3]}
+        targetPos={[0, 5, -20]}
+        rotVector={[-Math.PI / 2, 0, 0]}
+      />
+      <pointLight position={[0, 5, -23.3]} intensity={100} />
+      <ThreeDimButton
+        text="BACK"
+        posVector={[0, 0.01, -23.3]}
+        targetPos={[mainCameraPos[0], mainCameraPos[1], mainCameraPos[2]]}
+        rotVector={[-Math.PI / 2, 0, 0]}
       />
     </>
   );

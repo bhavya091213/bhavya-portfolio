@@ -1,4 +1,5 @@
 import { Text } from "@react-three/drei";
+import poppins from "/fonts/Poppins-Black.ttf";
 
 interface Props {
   name: string;
@@ -13,11 +14,7 @@ const Name = ({ name, x, y, z, size, emmisivity }: Props) => {
   return (
     <>
       <mesh position={[x, y, z]} castShadow>
-        <Text
-          font="public/fonts/Poppins-Black.ttf"
-          textAlign="center"
-          fontSize={size}
-        >
+        <Text font={poppins} textAlign="center" fontSize={size}>
           {name}
           <meshStandardMaterial
             color="#58a4b0"

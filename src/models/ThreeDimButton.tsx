@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { OrbitControls } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
+import menda from "/fonts/menda-4.ttf";
 
 interface Props {
   text: string;
@@ -54,15 +55,12 @@ const ThreeDimButton = ({
         onClick={handleClick}
         castShadow
       >
-        <Text
-          font="public/fonts/menda-4.ttf"
-          fontSize={size != null ? size : 0.8}
-          ref={container}
-        >
+        <Text font={menda} fontSize={size != null ? size : 0.8} ref={container}>
           {text}
           <meshStandardMaterial
             color={!color ? "#252323" : "#58a4b0"}
             roughness={0.7}
+            emissiveIntensity={5}
           />
         </Text>
         {orbitOk && (
