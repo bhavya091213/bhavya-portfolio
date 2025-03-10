@@ -1,33 +1,32 @@
-name: GitHub Pages
+name: Deploy Vite React App
 
 on:
   push:
     branches:
-      - main # Set a branch name to trigger deployment
-  pull_request:
+      - main # Runs on every push to main
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+    runs-on: ubuntu-latest
 
-      - name: Build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
         run: npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        # If you're changing the branch from main,
-        # also change the `main` in `refs/heads/main`
-        # below accordingly.
-        if: github.ref == 'refs/heads/main'
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          branch: gh-pages # Target branch for deployment
+          folder: dist # The output folder from `vite build`
