@@ -2,7 +2,6 @@ import { Canvas } from "@react-three/fiber";
 
 import { Stats } from "@react-three/drei";
 import React, { Suspense } from "react";
-import { EffectComposer, Noise } from "@react-three/postprocessing";
 
 import "./App.css";
 

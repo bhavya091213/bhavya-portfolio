@@ -16,6 +16,7 @@ export default function CurvedPlane({
   children,
   ...props
 }: CurvedPlaneProps) {
+  // @ts-ignore
   const { geometry, heightMin, heightMax } = useMemo(() => {
     const segments = 32;
     const segmentsH = segments;
@@ -26,7 +27,6 @@ export default function CurvedPlane({
       segmentsH,
       segmentsV
     );
-
     let heightMin = Infinity;
     let heightMax = -Infinity;
 

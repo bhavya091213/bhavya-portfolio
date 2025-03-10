@@ -1,4 +1,4 @@
-import { Center, Text } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 
 interface Props {
   text: string;

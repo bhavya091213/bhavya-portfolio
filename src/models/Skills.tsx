@@ -7,7 +7,7 @@ import ThreeDimButton from "./ThreeDimButton";
 import { useRef, useState } from "react";
 
 // GSAP Imports
-import gsap from "gsap";
+
 import { useGSAP } from "@gsap/react";
 
 // Font Imports
