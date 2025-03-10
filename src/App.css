@@ -4,10 +4,10 @@
     margin: 0;
     padding: 0;
     border: 0;
-    background-color: black;
+    background: #242424;
 }
 canvas{
-    height: 812px;
+    height: 100vh;
     display: flex ;
 }   
 

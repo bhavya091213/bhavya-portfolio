@@ -1,8 +1,7 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
-import { Suspense } from "react";
 import { PerspectiveCamera } from "@react-three/drei";
-import meshURL from "/threeDimModels/final-scene.gltf?url";
+import meshURL from "/final-scene.gltf?url";
 
 interface Props {
   x: number;
@@ -12,7 +11,7 @@ interface Props {
 }
 
 const MainScene = ({ x, y, z, initialPos }: Props) => {
-  const adress: string = meshURL; // have to do this otherwise line 25 gltf.scene thinks there is discrepancy in type
+  const adress: string = meshURL; // have to do this otherwise line 25 gltf.scene thinks there is discrepancy
   const gltf = useLoader(GLTFLoader, adress);
   console.log("Scene Loaded");
   return (
@@ -20,11 +19,9 @@ const MainScene = ({ x, y, z, initialPos }: Props) => {
       <PerspectiveCamera
         position={[initialPos[0], initialPos[1], initialPos[2]]}
       />
-      <Suspense fallback={<boxGeometry />}>
-        <mesh position={[x, y, z]} receiveShadow>
-          <primitive object={gltf.scene} scale={0.5} />
-        </mesh>
-      </Suspense>
+      <mesh position={[x, y, z]} receiveShadow>
+        <primitive object={gltf.scene} scale={0.5} />
+      </mesh>
     </>
   );
 };

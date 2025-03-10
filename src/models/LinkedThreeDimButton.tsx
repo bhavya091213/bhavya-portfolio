@@ -1,23 +1,27 @@
 import { Text, useCursor } from "@react-three/drei";
 import { useState } from "react";
-import menda from "/public/fonts/menda-4.ttf";
+import menda from "/fonts/menda-4.ttf";
 
 interface Props {
   text: string;
+  linked: string;
   posVector: number[];
   rotVector: number[];
   size?: number;
 }
 
-const LinkedThreeDimButton = ({ text, posVector, rotVector, size }: Props) => {
+const LinkedThreeDimButton = ({
+  text,
+  posVector,
+  rotVector,
+  size,
+  linked,
+}: Props) => {
   const [color, setColor] = useState(false);
   useCursor(color);
 
   const handleClick = () => {
-    window.open(
-      "https://www.youtube.com/channel/UCgjlsfArtc8UFxtw7nKAXCw",
-      "_blank"
-    );
+    window.open(linked, "_blank");
   };
 
   return (

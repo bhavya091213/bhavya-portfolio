@@ -2,7 +2,6 @@ import { Text, useCursor } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import gsap from "gsap";
-import { OrbitControls } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
 import menda from "/fonts/menda-4.ttf";
 
@@ -21,15 +20,16 @@ const ThreeDimButton = ({
   rotVector,
   size,
 }: Props) => {
+  // Basic Selecting and color states
   const camera = useThree().camera;
   const [color, setColor] = useState(false);
   useCursor(color);
 
-  const [orbitOk, setOrbitOk] = useState(false);
+  //GSAP Animation
+  const container = useRef(); // put ref on text
+  const { contextSafe } = useGSAP({ scope: container }); // define scope which is the ref
 
-  const container = useRef();
-  const { contextSafe } = useGSAP({ scope: container });
-
+  // define a funciton that has animation
   const contentSafeClick = contextSafe(() => {
     gsap.to(camera.position, {
       x: targetPos[0],
@@ -40,9 +40,10 @@ const ThreeDimButton = ({
     });
   });
 
+  // handle the click
+
   const handleClick = () => {
     contentSafeClick();
-    setOrbitOk(false);
   };
 
   return (
@@ -63,18 +64,6 @@ const ThreeDimButton = ({
             emissiveIntensity={5}
           />
         </Text>
-        {orbitOk && (
-          <OrbitControls
-            enableZoom={true}
-            minDistance={10}
-            maxDistance={20}
-            minPolarAngle={Math.PI / 12}
-            maxPolarAngle={Math.PI / 2.4}
-            minAzimuthAngle={Math.PI / 2}
-            enablePan={false}
-            target={[targetPos[0], targetPos[1], targetPos[2]]}
-          />
-        )}
       </mesh>
     </>
   );
