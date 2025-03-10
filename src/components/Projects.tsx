@@ -6,7 +6,6 @@ import * as THREE from "three";
 import CurvedPlane from "../models/CurvedPlane";
 
 // vid import
-import water from "/videos/water.mp4?url";
 import motExtract from "/videos/motextract.mov?url";
 import vidstabdemo from "/videos/vidstabdemo.mov?url";
 import justbaldemo from "/videos/justbaldemo.mov?url";
