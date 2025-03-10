@@ -44,10 +44,10 @@ const MainButtons = () => {
         targetPos={[0, 4.7, -20]}
         rotVector={[-Math.PI / 2, 0, 0]}
       />
-      <pointLight position={[0, 5, -30.3]} intensity={500} />
+      <pointLight position={[0, 10, -30.3]} intensity={500} />
       <ThreeDimButton
         text="BACK"
-        posVector={[0, 0.01, -23.3]}
+        posVector={[0, 0.01, -22.3]}
         targetPos={[mainCameraPos[0], mainCameraPos[1], mainCameraPos[2]]}
         rotVector={[-Math.PI / 2, 0, 0]}
       />

@@ -4,16 +4,21 @@ import SemiBold from "/fonts/Poppins-SemiBold.ttf?url";
 import { useVideoTexture, Center } from "@react-three/drei";
 import * as THREE from "three";
 import CurvedPlane from "../models/CurvedPlane";
+
+// vid import
 import water from "/videos/water.mp4?url";
+import motExtract from "/videos/motextract.mov?url";
+import vidstabdemo from "/videos/vidstabdemo.mov?url";
+import justbaldemo from "/videos/justbaldemo.mov?url";
 
 // video imports
 
 // all the links for the projects
 const VidLinks = {
-  MotionExtraction: water,
-  VideoStabilization: "/videos/water.mp4",
-  Mnist: "/videos/water.mp4",
-  justBalance: "/videos/water.mp4",
+  MotionExtraction: motExtract,
+  VideoStabilization: motExtract,
+  Mnist: motExtract,
+  justBalance: motExtract,
 };
 
 export const Projects = () => {
@@ -23,47 +28,64 @@ export const Projects = () => {
     <>
       {/* pass props to child clas, prolly more efficent way of doing this */}
       {/* Screen */}
-      <mesh position={[0, 0, -25]} rotation={[0, Math.PI, 0]} scale={1.5}>
+      <mesh
+        position={[0, 0, -24]}
+        rotation={[-Math.PI / 50, Math.PI, 0]}
+        scale={1.9}
+      >
         <Screen src={currURL} />
       </mesh>
 
       {/* Buttons */}
       <mesh
         onPointerOver={() => {
-          setCurrURL("/videos/water.mp4");
-          console.log("hoevered");
+          setCurrURL(motExtract);
+          console.log("mot extract demo");
         }}
       >
         <VideoButton
           text="MOTION EXRTACTION"
           size={0.4}
-          posVector={[0, 0.01, -26.3]}
+          posVector={[0, 0.01, -25.3]}
           rotVector={[-Math.PI / 2, 0, 0]}
           link={"https://github.com/bhavya091213/MotionExtractor"}
         />
       </mesh>
-
-      <VideoButton
-        text="VIDEO STABILIZATION"
-        size={0.4}
-        posVector={[0, 0.01, -25.7]}
-        rotVector={[-Math.PI / 2, 0, 0]}
-        link={"https://github.com/bhavya091213/MotionExtractor/tree/main/src"}
-      />
+      <mesh
+        onPointerOver={() => {
+          setCurrURL(vidstabdemo);
+          console.log("vid stab hover");
+        }}
+      >
+        <VideoButton
+          text="VIDEO STABILIZATION"
+          size={0.4}
+          posVector={[0, 0.01, -24.7]}
+          rotVector={[-Math.PI / 2, 0, 0]}
+          link={"https://github.com/bhavya091213/MotionExtractor/tree/main/src"}
+        />
+      </mesh>
       <VideoButton
         text="MNIST"
         size={0.4}
-        posVector={[0, 0.01, -25.1]}
+        posVector={[0, 0.01, -24.1]}
         rotVector={[-Math.PI / 2, 0, 0]}
         link={"https://github.com/bhavya091213/mnist_classification.git"}
       />
-      <VideoButton
-        text="justBalance"
-        size={0.4}
-        posVector={[0, 0.01, -24.5]}
-        rotVector={[-Math.PI / 2, 0, 0]}
-        link={"https://github.com/aaryanbhardwaj1/justBalance"}
-      />
+      <mesh
+        onPointerOver={() => {
+          setCurrURL(justbaldemo);
+          console.log("just bal hover");
+        }}
+      >
+        <VideoButton
+          text="justBalance"
+          size={0.4}
+          posVector={[0, 0.01, -23.5]}
+          rotVector={[-Math.PI / 2, 0, 0]}
+          link={"https://github.com/aaryanbhardwaj1/justBalance"}
+        />
+      </mesh>
     </>
   );
 };
