@@ -21,7 +21,7 @@ const MainButtons = () => {
         targetPos={[-25, 4.7, -20]}
         rotVector={[-Math.PI / 2, 0, 0]}
       />
-      <pointLight position={[-25, 5, -30.3]} intensity={500} />
+      <pointLight position={[-25, 10, -30.3]} intensity={500} castShadow />
       <ThreeDimButton
         text="BACK"
         posVector={[-25, 0.01, -23.3]}

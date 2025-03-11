@@ -35,7 +35,7 @@ function App() {
         <AboutMeText />
         <Skills />
         <Projects />
-        <Resume />
+        <Resume posVector={[-25, 0.01, -30.3]} />
         <Stats showPanel={0} className="stats" />
 
         {/* Post Processing */}
