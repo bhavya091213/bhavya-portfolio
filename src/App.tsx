@@ -12,6 +12,7 @@ import MainScene from "./models/MainScene";
 import AboutMeText from "./components/AboutMeText";
 import Skills from "./models/Skills";
 import { Projects } from "./components/Projects";
+import { Resume } from "./components/Resume";
 
 export const inPage = React.createContext("about-me");
 
@@ -34,6 +35,7 @@ function App() {
         <AboutMeText />
         <Skills />
         <Projects />
+        <Resume />
         <Stats showPanel={0} className="stats" />
 
         {/* Post Processing */}

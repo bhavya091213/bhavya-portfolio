@@ -5,7 +5,7 @@ const MainButtons = () => {
   return (
     <>
       {/* Skills LIGHTS AND BUTTONS */}
-      <pointLight position={[0, 5, 10]} intensity={100} />
+      <pointLight position={[0, 5, 20]} intensity={100} />
       <ThreeDimButton
         text="SKILLS"
         posVector={[0, 0.01, 2.3]}

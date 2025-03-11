@@ -5,10 +5,14 @@ import { useVideoTexture, Center } from "@react-three/drei";
 import * as THREE from "three";
 import CurvedPlane from "../models/CurvedPlane";
 
+// font imports
+import semibold from "/fonts/Poppins-SemiBold.ttf?url";
 // vid import
 import motExtract from "/videos/motextract.mov?url";
 import vidstabdemo from "/videos/vidstabdemo.mov?url";
 import justbaldemo from "/videos/justbaldemo.mov?url";
+import mnistDemo from "/videos/mnistdemo.mov?url";
+import GenericText from "../models/GenericText";
 
 // video imports
 
@@ -33,6 +37,24 @@ export const Projects = () => {
         scale={1.9}
       >
         <Screen src={currURL} />
+      </mesh>
+
+      {/* Generic Text */}
+      <mesh position={[0, 0.01, -27.5]} rotation={[-Math.PI / 2, 0, 0]}>
+        <GenericText
+          fontAddr={semibold}
+          text="Welcome to my Projects!"
+          size={0.8}
+          color="#252323"
+        />
+      </mesh>
+      <mesh position={[0, 0.01, -26.5]} rotation={[-Math.PI / 2, 0, 0]}>
+        <GenericText
+          fontAddr={semibold}
+          text="Hover to see the preview, and click to see the repos!"
+          size={0.6}
+          color="#252323"
+        />
       </mesh>
 
       {/* Buttons */}
@@ -64,13 +86,20 @@ export const Projects = () => {
           link={"https://github.com/bhavya091213/MotionExtractor/tree/main/src"}
         />
       </mesh>
-      <VideoButton
-        text="MNIST"
-        size={0.4}
-        posVector={[0, 0.01, -24.1]}
-        rotVector={[-Math.PI / 2, 0, 0]}
-        link={"https://github.com/bhavya091213/mnist_classification.git"}
-      />
+      <mesh
+        onPointerOver={() => {
+          setCurrURL(mnistDemo);
+          console.log("mnist hover");
+        }}
+      >
+        <VideoButton
+          text="MNIST"
+          size={0.4}
+          posVector={[0, 0.01, -24.1]}
+          rotVector={[-Math.PI / 2, 0, 0]}
+          link={"https://github.com/bhavya091213/mnist_classification.git"}
+        />
+      </mesh>
       <mesh
         onPointerOver={() => {
           setCurrURL(justbaldemo);

@@ -1,16 +1,14 @@
 import LinkedThreeDimButton from "../models/LinkedThreeDimButton";
 
-const Resume = () => {
+export const Resume = () => {
   return (
     <mesh>
       <LinkedThreeDimButton
         text="Resume Link"
-        posVector={[0, 0, 0]}
-        rotVector={[0, 0, 0]}
+        posVector={[-25, 0.01, -25.3]}
+        rotVector={[-Math.PI / 2, 0, 0]}
         linked="https://docs.google.com/document/d/1OgOWLttBVdcDEocE-Wz1sPGNcoYeRHcmh_Wao44R36U/edit?usp=sharing"
       />
     </mesh>
   );
 };
-
-export default Resume;
